@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".mainActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <FrameLayout
+        android:id="@+id/fullscreen_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"/>
+    <!-- This FrameLayout insets its children based on system windows using
+         android:fitsSystemWindows. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:visibility="invisible"
+            tools:visibility="invisible" />
+
+        <RelativeLayout
+            android:id="@+id/fullscreen_content_controls"
+            style="?metaButtonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@android:color/background_light"
+            android:focusable="auto"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/pfeil_links"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="350dp"
+                android:layout_marginLeft="2dp"
+                android:drawableRight="@drawable/ic_arrow_back_black_24dp" />
+
+            <Button
+                android:id="@+id/pfeil_rechts"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="350dp"
+                android:layout_marginLeft="142dp"
+                android:drawableLeft="@drawable/ic_arrow_forward_black_24dp" />
+
+            <Button
+                android:id="@+id/pfeil_oben"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="300dp"
+                android:layout_marginLeft="70dp"
+                android:drawableTop="@drawable/ic_arrow_upward_black_24dp" />
+
+            <Button
+                android:id="@+id/pfeil_unten"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="350dp"
+                android:layout_marginLeft="70dp"
+                android:drawableBottom="@drawable/ic_arrow_downward_black_24dp" />
+
+            <Button
+                android:id="@+id/action"
+                style="?metaButtonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="300dp"
+                android:layout_marginLeft="600dp"
+                android:drawableBottom="@drawable/ic_star_black_24dp" />
+
+        </RelativeLayout>
+    </FrameLayout>
+
+</FrameLayout>

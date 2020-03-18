@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MyGame</string>
+    <string name="button_start"><b>START</b></string>
+    <string name="button_ende">EXIT</string>
+    <string name="button_laden">LADEN</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="pfeil_links">links</string>
+    <string name="pfeil_rechts">rechts</string>
+    <string name="pfeil_oben">oben</string>
+    <string name="pfeil_unten">unten</string>
+
+    <string name="title_activity_main">mainActivity</string>
+</resources>
