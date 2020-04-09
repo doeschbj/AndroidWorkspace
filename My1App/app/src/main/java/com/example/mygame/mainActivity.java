@@ -28,6 +28,8 @@ public class mainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         hideSystemUI();
+        // set our MainGamePanel as the View
+        //setContentView(new MainGamePanel(this));
         setContentView(R.layout.activity_main);
     }
 
