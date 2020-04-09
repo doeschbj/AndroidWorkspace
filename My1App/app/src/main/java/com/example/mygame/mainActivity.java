@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 /*
 * Hauptklasse
@@ -29,8 +31,13 @@ public class mainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         hideSystemUI();
         // set our MainGamePanel as the View
+        FrameLayout game = new FrameLayout(this);
+        MainGamePanel mgp = new MainGamePanel(this);
+        RelativeLayout controls = findViewById(R.id.fullscreen_content_controls);
         //setContentView(new MainGamePanel(this));
-        setContentView(R.layout.activity_main);
+        game.addView(controls);
+        game.addView(mgp);
+        setContentView(game);
     }
 
     public void onWindowFocusChanged(boolean hasFocus) {
