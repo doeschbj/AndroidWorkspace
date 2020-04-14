@@ -3,6 +3,8 @@ package com.example.mygame;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -10,15 +12,15 @@ import android.view.SurfaceView;
 
 import com.example.mygame.MainThread;
 
-public class MainGamePanel extends SurfaceView implements
-        SurfaceHolder.Callback {
+public class MainGamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private MainThread thread;
+    private Paint paint;
     private static final String TAG = MainThread.class.getSimpleName();
     public MainGamePanel(Context context) {
         super(context);
         getHolder().addCallback(this);
-
+        paint = new Paint();
         // create the game loop thread
         thread = new MainThread(getHolder(), this);
         setFocusable(true);
@@ -62,6 +64,7 @@ public class MainGamePanel extends SurfaceView implements
 
     @Override
     protected void onDraw(Canvas canvas) {
+
     }
 
     public void update(){
@@ -69,6 +72,7 @@ public class MainGamePanel extends SurfaceView implements
     }
 
     public void render(Canvas canvas){
-
+        paint.setColor(Color.BLUE);
+        canvas.drawRect(0, 0, getWidth()/2, getHeight() , paint);
     }
 }
