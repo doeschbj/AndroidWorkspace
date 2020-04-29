@@ -1,5 +1,7 @@
 package com.example.einkaufsliste;
 
+import android.app.Dialog;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -11,16 +13,21 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    ArrayList<Eintrag> data;
+    DataBaseHolder db;
+    Cursor dbdata;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +36,24 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        ListView list = (ListView) findViewById(R.id.view_list);
+
+
+        data = new ArrayList<Eintrag>();
+        db = new DataBaseHolder(this);
+
+
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+        data.add(new Eintrag("Mehl","500"));
+
+        C_ListAdapter adapter = new C_ListAdapter(this, R.layout.rowlayout, data);
+        list.setAdapter(adapter);
     }
 
     @Override
@@ -52,4 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
