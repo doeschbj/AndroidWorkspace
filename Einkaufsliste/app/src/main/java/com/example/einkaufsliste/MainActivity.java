@@ -21,6 +21,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MyDialog.MyDialogListener {
@@ -45,10 +46,16 @@ public class MainActivity extends AppCompatActivity implements MyDialog.MyDialog
             }
         });
         list = (ListView) findViewById(R.id.view_list);
-        db = new DataBaseHolder(this);
+        data = new ArrayList<Eintrag>();
+        try {
+            db = new DataBaseHolder(this);
+        }catch (ClassNotFoundException| SQLException e){
+            Log.e("MainActivity","error 1"+ e);
+        }
+        if(db != null){
+            data = db.getData();
+        }
 
-
-        data = db.getData();
         data.add(new Eintrag("Mehl","0"));
         data.add(new Eintrag("Mehl","1"));
         data.add(new Eintrag("Mehl","2"));
@@ -113,11 +120,11 @@ public class MainActivity extends AppCompatActivity implements MyDialog.MyDialog
     }
 
     public void addEntryDB(Eintrag entry){
-        db.addEntry(entry.getName(),entry.getNum());
+        //db.addEntry(entry.getName(),entry.getNum());
     }
 
     public void db_remove(Eintrag entry){
-        db.removeEntry(entry.getName());
+        //db.removeEntry(entry.getName());
     }
 
     @Override
