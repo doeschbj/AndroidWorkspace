@@ -19,9 +19,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2, R.string.tab_text_3};
     private final Context mContext;
+    private int r_nmbr = 0;
 
-    public SectionsPagerAdapter(Context context, FragmentManager fm) {
+    public SectionsPagerAdapter(Context context, FragmentManager fm, int nmbr) {
         super(fm);
+        r_nmbr = nmbr;
         mContext = context;
     }
 
@@ -30,7 +32,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = PlaceholderFragment.newInstance(position + 1);
+                fragment = StatusFragment.newInstance(r_nmbr);
                 break;
             case 1:
                 fragment = PlaceholderFragment.newInstance(position + 1);
