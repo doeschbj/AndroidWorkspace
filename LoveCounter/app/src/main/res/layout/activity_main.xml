@@ -21,21 +21,22 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883" />
+        app:layout_constraintVertical_bias="0.889" />
 
     <TextView
         android:id="@+id/date_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="-----------------------------"
+        android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="32dp"
+        android:textSize="25dp"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.959" />
+        app:layout_constraintVertical_bias="0.977" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

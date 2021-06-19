@@ -18,6 +18,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Timer;
 import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
@@ -42,8 +43,32 @@ public class MainActivity extends AppCompatActivity {
         Period period = Period.between(thedate, today);
         int dayselapsed = period.getDays();
         int month = period.getMonths();
+        int year = period.getYears();
+        long days_total = ChronoUnit.DAYS.between(thedate, today);
+        String months_str = "" + month + " months, ";
+        String year_str = ""+ year + " years, ";
+        String day_str = ""+ dayselapsed + " days";
 
-        date_tv.setText(dayselapsed + " " + days);
+        if(month == 1){
+            months_str = " 1 month, ";
+        }else if(month == 0){
+            months_str = "";
+        }
+
+        if(year == 1){
+            year_str = " 1 year, ";
+        } else if(year == 0) {
+            year_str = "";
+        }
+
+        if(dayselapsed == 1){
+            day_str = " " +
+                    "1 day";
+        }else if(dayselapsed == 0){
+            day_str = "";
+        }
+
+        date_tv.setText(days_total + " " + days+ "\n" + year_str+ months_str + day_str);
 
         back_constraint = findViewById(R.id.background_layout);
         back_thread.setConlayout(back_constraint);
